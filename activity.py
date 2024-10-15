@@ -127,12 +127,14 @@ class Ui_Form(object):
 "")
         self.activity_page.setObjectName("activity_page")
         self.verticalLayout.addWidget(self.activity_page)
-        self.analysis_page = QtWidgets.QPushButton(self.widget_2)
-        self.analysis_page.setMinimumSize(QtCore.QSize(0, 50))
-        self.analysis_page.setMaximumHeight(85)
-        self.analysis_page.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
-        self.analysis_page.setAutoFillBackground(False)
-        self.analysis_page.setStyleSheet("QPushButton{\n"
+
+####  analysis button
+        self.analysis_btn = QtWidgets.QPushButton(self.widget_2)
+        self.analysis_btn.setMinimumSize(QtCore.QSize(0, 50))
+        self.analysis_btn.setMaximumHeight(85)
+        self.analysis_btn.setSizePolicy(QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.analysis_btn.setAutoFillBackground(False)
+        self.analysis_btn.setStyleSheet("QPushButton{\n"
 "\n"
 "    color: rgb(0, 0, 0);\n"
 "    \n"
@@ -164,8 +166,8 @@ class Ui_Form(object):
 "\n"
 "\n"
 "")
-        self.analysis_page.setObjectName("analysis_page")
-        self.verticalLayout.addWidget(self.analysis_page)
+        self.analysis_btn.setObjectName("analysis_btn")
+        self.verticalLayout.addWidget(self.analysis_btn)
         self.client_page = QtWidgets.QPushButton(self.widget_2)
         self.client_page.setMinimumSize(QtCore.QSize(0, 50))
         self.client_page.setMaximumHeight(85)
@@ -718,6 +720,16 @@ class Ui_Form(object):
         self.stackedWidget_page.addWidget(self.staff_page)
         self.verticalLayout_12.addWidget(self.staff_widget)
 
+        self.analysis_page = QtWidgets.QWidget()
+        self.analysis_page.setObjectName("analysis_page")
+        self.analysis_widget = QWidget(self.analysis_page)
+        self.analysis_widget.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.analysis_page)
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_13.setObjectName("verticalLayout_8")
+        self.stackedWidget_page.addWidget(self.analysis_page)
+        self.verticalLayout_13.addWidget(self.analysis_widget)
+
         #############################################################################################################################
 
 
@@ -733,7 +745,7 @@ class Ui_Form(object):
         self.name_label.setText(_translate("Form", "Text"))
         self.username_label.setText(_translate("Form", "Text"))
         self.activity_page.setText(_translate("Form", "Activity"))
-        self.analysis_page.setText(_translate("Form", "Analysis"))
+        self.analysis_btn.setText(_translate("Form", "Analysis"))
         self.client_page.setText(_translate("Form", "Client"))
         self.staff_button.setText(_translate("Form", "Staff"))
         self.signout_button.setText(_translate("Form", "Sign out"))

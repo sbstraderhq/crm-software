@@ -7,6 +7,7 @@ import pandas as pd
 from sbsclientbackend import *
 import subprocess
 from staff_manager_backend import *
+from analysis_backend import *
 
 
 
@@ -61,8 +62,11 @@ class UiFunction(Ui_Form):
         self.username_label.setText(str(self.staff_username))
         self.referral_label.setText(str(self.staff_referral))
 
+        self.analysis_btn.clicked.connect(self.change_analysis)
         
         self.staff_ui = StaffManager()
+
+        self.analysis_ui = Analysis(referral, admin)
 
         self.check_admin()
     
@@ -134,6 +138,15 @@ class UiFunction(Ui_Form):
 
         
         # self.staff_ui.table_staff.resizeColumnsToContents()
+
+    def change_analysis(self):
+
+        self.analysis_ui.setupUi(self.analysis_widget)
+        self.stackedWidget_page.setCurrentWidget(self.analysis_page)
+
+        self.conn = self.analysis_ui.create_connection()
+        self.cursor = self.analysis_ui.conn.cursor()
+        
 
         
     def test(self):
